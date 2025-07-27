@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.entity.Book;
 import com.example.backend.service.BookService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,8 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+
+
 
     // POST: Add a new book
     @PostMapping("/add")
@@ -66,6 +69,9 @@ public class BookController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+
+
 
     // DELETE: Remove a book
     @DeleteMapping("/{id}")

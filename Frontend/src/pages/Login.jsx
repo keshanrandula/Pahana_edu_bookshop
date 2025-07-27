@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // 
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
-
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:8080/api/auth/login', formData);
-      setMessage(res.data);
+
+      if (res.data === 'Login successful!') {
+        // Now fetch the user details to store in localStorage
+        const userRes = await axios.get(`http://localhost:8080/api/auth/all`);
+        const foundUser = userRes.data.find(user => user.email === formData.email);
+        if (foundUser) {
+          localStorage.setItem('user', JSON.stringify(foundUser));
+          navigate('/profile');
+        }
+      } else {
+        setMessage(res.data);
+      }
     } catch (err) {
-      console.error('Login error:', err);
-      setMessage('Login failed. Please check your credentials.');
+      setMessage('Login failed. Please try again.');
+      console.error(err);
     }
   };
 
@@ -37,39 +41,29 @@ const Login = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="Email"
+            className="w-full px-4 py-2 border rounded"
             required
           />
-
           <input
             type="password"
             name="password"
-            placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="Password"
+            className="w-full px-4 py-2 border rounded"
             required
           />
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200"
-          >
+          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">
             Login
           </button>
         </form>
-
-        {message && (
-          <p className="mt-4 text-center text-sm text-green-600">{message}</p>
-        )}
-
-        {/* ✅ Link to Register */}
-        <p className="mt-4 text-center text-sm text-gray-600">
+        {message && <p className="text-center text-red-600 mt-4">{message}</p>}
+        <p className="mt-4 text-center">
           Don't have an account?{' '}
-          <Link to="/" className="text-blue-600 hover:underline">
+          <Link to="/register" className="text-blue-600 hover:underline">
             Register here
           </Link>
         </p>
