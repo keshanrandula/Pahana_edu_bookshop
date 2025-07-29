@@ -37,7 +37,7 @@ const Cart = () => {
 
   const handlePayment = () => {
     alert('Redirecting to payment gateway...');
-    // navigate('/payment'); // Optional: Create a Payment page and use this
+     navigate('/checkout'); // Optional: Create a Payment page and use this
   };
 
   return (

@@ -20,6 +20,7 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 import BookShop from './pages/BookShop'; // Assuming you have this component
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import AdminOrderView from './pages/Admin/OrderView'; // Assuming you have this component
 
 
 
@@ -54,6 +55,7 @@ function App() {
       <Route path="/admin/profile" element={<AdminProfile />} /> {/* Assuming you have this component */}
       <Route path="/admin/userdetails" element={<UserDetails/>} /> {/* Assuming you have this component */}
       <Route path="/book/:id" element={<BookDetails />} />
+      <Route path="/admin/orders" element={<AdminOrderView />} /> {/* Assuming you have this component */}
 
 
 

@@ -12,10 +12,71 @@ import {
 } from 'react-icons/fa';
 
 export default function AdminDashboard() {
+  // Dummy stats – these can be fetched from backend later
   const stats = [
     { value: 10, label: 'Total Admins', icon: <FaUsers className="text-3xl text-blue-600" /> },
     { value: 120, label: 'Books Available', icon: <FaBook className="text-3xl text-green-600" /> },
     { value: '$5,700', label: 'Revenue', icon: <FaChartBar className="text-3xl text-purple-600" /> },
+  ];
+
+  const actions = [
+    {
+      to: '/AdminAdd',
+      icon: <FaUsers className="text-3xl text-blue-600 mb-2" />,
+      title: 'Add Admin',
+      subtitle: 'Register a new admin',
+    },
+    {
+      to: '/AddBook',
+      icon: <FaPlusCircle className="text-3xl text-green-600 mb-2" />,
+      title: 'Add Book',
+      subtitle: 'Upload a new book with image',
+    },
+    {
+      to: '/BookSearch',
+      icon: <FaSearch className="text-3xl text-yellow-500 mb-2" />,
+      title: 'Search Books',
+      subtitle: 'Find books by title or author',
+    },
+    {
+      to: '/AllBooks',
+      icon: <FaBook className="text-3xl text-purple-600 mb-2" />,
+      title: 'View All Books',
+      subtitle: 'Edit or delete books',
+    },
+    {
+      to: '/Reports',
+      icon: <FaChartBar className="text-3xl text-pink-600 mb-2" />,
+      title: 'Reports',
+      subtitle: 'Usage and revenue reports',
+    },
+    {
+      to: '/Settings',
+      icon: <FaCog className="text-3xl text-gray-700 mb-2" />,
+      title: 'Settings',
+      subtitle: 'System preferences',
+    },
+  ];
+
+  const activities = [
+    {
+      icon: '✓',
+      color: 'text-green-600',
+      text: 'Admin "john@example.com" registered',
+      time: '5 minutes ago',
+    },
+    {
+      icon: '!',
+      color: 'text-yellow-500',
+      text: 'Book update: "Spring Boot in Action"',
+      time: '1 hour ago',
+    },
+    {
+      icon: 'i',
+      color: 'text-blue-600',
+      text: 'User feedback from user@example.com',
+      time: '2 hours ago',
+    },
   ];
 
   return (
@@ -55,36 +116,17 @@ export default function AdminDashboard() {
       <section className="mb-10">
         <h2 className="text-xl font-bold mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Link to="/AdminAdd" className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center">
-            <FaUsers className="text-3xl text-blue-600 mb-2" />
-            <h3 className="font-semibold mb-1">Add Admin</h3>
-            <p className="text-sm text-gray-600">Register a new admin</p>
-          </Link>
-          <Link to="/AddBook" className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center">
-            <FaPlusCircle className="text-3xl text-green-600 mb-2" />
-            <h3 className="font-semibold mb-1">Add Book</h3>
-            <p className="text-sm text-gray-600">Upload a new book with image</p>
-          </Link>
-          <Link to="/BookSearch" className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center">
-            <FaSearch className="text-3xl text-yellow-500 mb-2" />
-            <h3 className="font-semibold mb-1">Search Books</h3>
-            <p className="text-sm text-gray-600">Find books by title or author</p>
-          </Link>
-          <Link to="/AllBooks" className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center">
-            <FaBook className="text-3xl text-purple-600 mb-2" />
-            <h3 className="font-semibold mb-1">View All Books</h3>
-            <p className="text-sm text-gray-600">Edit or delete books</p>
-          </Link>
-          <Link to="/Reports" className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center">
-            <FaChartBar className="text-3xl text-pink-600 mb-2" />
-            <h3 className="font-semibold mb-1">Reports</h3>
-            <p className="text-sm text-gray-600">Download usage and revenue reports</p>
-          </Link>
-          <Link to="/Settings" className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center">
-            <FaCog className="text-3xl text-gray-700 mb-2" />
-            <h3 className="font-semibold mb-1">Settings</h3>
-            <p className="text-sm text-gray-600">Configure system preferences</p>
-          </Link>
+          {actions.map((action, idx) => (
+            <Link
+              key={idx}
+              to={action.to}
+              className="bg-white p-6 rounded shadow hover:shadow-lg transition flex flex-col items-center text-center"
+            >
+              {action.icon}
+              <h3 className="font-semibold mb-1">{action.title}</h3>
+              <p className="text-sm text-gray-600">{action.subtitle}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -92,27 +134,15 @@ export default function AdminDashboard() {
       <section>
         <h2 className="text-xl font-bold mb-4">Recent Activity</h2>
         <div className="bg-white rounded shadow divide-y">
-          <div className="flex items-start p-4 space-x-3 hover:bg-gray-50">
-            <div className="text-green-600 font-bold">✓</div>
-            <div>
-              <p className="text-sm text-gray-800">Admin "john@example.com" registered</p>
-              <small className="text-gray-500">5 minutes ago</small>
+          {activities.map((activity, idx) => (
+            <div key={idx} className="flex items-start p-4 space-x-3 hover:bg-gray-50">
+              <div className={`${activity.color} font-bold`}>{activity.icon}</div>
+              <div>
+                <p className="text-sm text-gray-800">{activity.text}</p>
+                <small className="text-gray-500">{activity.time}</small>
+              </div>
             </div>
-          </div>
-          <div className="flex items-start p-4 space-x-3 hover:bg-gray-50">
-            <div className="text-yellow-500 font-bold">!</div>
-            <div>
-              <p className="text-sm text-gray-800">Book update: "Spring Boot in Action"</p>
-              <small className="text-gray-500">1 hour ago</small>
-            </div>
-          </div>
-          <div className="flex items-start p-4 space-x-3 hover:bg-gray-50">
-            <div className="text-blue-600 font-bold">i</div>
-            <div>
-              <p className="text-sm text-gray-800">User feedback received from user@example.com</p>
-              <small className="text-gray-500">2 hours ago</small>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
