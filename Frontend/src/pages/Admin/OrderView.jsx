@@ -53,7 +53,19 @@ const ViewOrders = () => {
                     </div>
                   ))}
                 </div>
+                
+
+                      
               </div>
+              <div className="mt-4 flex justify-end">
+
+                         <button
+                        onClick={() => handleDelete(order._id)}
+                        className="text-white bg-red-600 hover:bg-red-700 font-semibold py-2 px-4 rounded-lg transition-colors"
+                      >
+                        Delete Order
+                      </button>
+                      </div>
             </div>
           ))}
         </div>

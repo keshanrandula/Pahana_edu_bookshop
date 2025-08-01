@@ -90,14 +90,14 @@ const Register = () => {
             className="w-full px-4 py-2 border rounded"
             required
           />
-          <button type="submit" className="w-full bg-green-600 text-white py-2 rounded">
+          <button type="submit" className="w-full bg-orange-600 text-white py-2 rounded">
             Register
           </button>
         </form>
         {message && <p className="text-center text-red-600 mt-4">{message}</p>}
         <p className="mt-4 text-center">
           Already have an account?{' '}
-          <Link to="/login" className="text-blue-600 hover:underline">
+          <Link to="/login" className="text-orange-600 hover:underline">
             Login here
           </Link>
         </p>

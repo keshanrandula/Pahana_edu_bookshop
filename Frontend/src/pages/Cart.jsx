@@ -105,7 +105,7 @@ const Cart = () => {
 
             <button
               onClick={handlePayment}
-              className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 transition"
+              className="bg-orange-600 text-white px-6 py-3 rounded hover:bg-orange-700 transition"
             >
               Proceed to Payment
             </button>
@@ -117,3 +117,6 @@ const Cart = () => {
 };
 
 export default Cart;
+
+
+

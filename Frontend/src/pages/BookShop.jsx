@@ -27,7 +27,7 @@ const BookShop = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">📚 Book Shop</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">📚 pahana BookShop</h1>
 
       {/* Search & Category */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -111,7 +111,7 @@ const BookShop = () => {
         </button> */}
           <button
           onClick={() => navigate(`/book/${book.id}`)}
-          className="mt-auto bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 flex items-center justify-center"
+          className="mt-auto bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 flex items-center justify-center"
         >
           Details
         </button>

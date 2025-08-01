@@ -35,14 +35,14 @@ const UserDetails = () => {
   return (
     <div className="min-h-screen bg-blue-50 py-10 px-5">
       <div className="max-w-6xl mx-auto bg-white p-6 rounded-2xl shadow-md">
-        <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">User Details</h1>
+        <h1 className="text-3xl font-bold text-center text-orange-700 mb-6">User Details</h1>
 
         {users.length === 0 ? (
           <p className="text-center text-gray-500">No users found.</p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="min-w-full table-auto border border-blue-200">
-              <thead className="bg-blue-100 text-blue-700">
+            <table className="min-w-full table-auto border border-orange-200">
+              <thead className="bg-blue-100 text-orange-700">
                 <tr>
                   <th className="py-2 px-4 border">Username</th>
                   <th className="py-2 px-4 border">Email</th>
@@ -53,7 +53,7 @@ const UserDetails = () => {
               </thead>
               <tbody className="text-gray-700">
                 {users.map((user) => (
-                  <tr key={user.id} className="hover:bg-blue-50 transition">
+                  <tr key={user.id} className="hover:bg-orange-50 transition">
                     <td className="py-2 px-4 border">{user.username}</td>
                     <td className="py-2 px-4 border">{user.email}</td>
                     <td className="py-2 px-4 border">{user.contact_number}</td>

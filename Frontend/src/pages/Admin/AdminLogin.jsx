@@ -28,7 +28,7 @@ const AdminLogin = () => {
         localStorage.setItem("adminEmail", credentials.email);
 
         // Navigate to profile page
-        navigate('/admin/profile');
+        navigate('/admin/dashboard');
       } else {
         alert(res.data);
       }
@@ -69,7 +69,7 @@ const AdminLogin = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200"
+            className="w-full bg-orange-600 text-white py-2 rounded hover:bg-orange-700 transition duration-200"
           >
             Login
           </button>
@@ -81,7 +81,7 @@ const AdminLogin = () => {
 
         <p className="mt-4 text-center text-sm text-gray-600">
           Don't have an admin account?{' '}
-          <Link to="/admin/register" className="text-blue-600 hover:underline">
+          <Link to="/admin/register" className="text-orange-600 hover:underline">
             Register here
           </Link>
         </p>
