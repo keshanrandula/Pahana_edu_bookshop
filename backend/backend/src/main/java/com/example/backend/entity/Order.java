@@ -1,8 +1,8 @@
+
 package com.example.backend.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.List;
 
 @Document(collection = "orders")
@@ -23,7 +23,9 @@ public class Order {
     private String paypalEmail;
     private double total;
 
-    private List<OrderBook> items;  // Changed from OrderItem to OrderBook
+    private List<OrderBook> items;
+
+    private String status = "Pending"; // ✅ New field
 
     // Getters & Setters
     public String getId() { return id; }
@@ -64,4 +66,7 @@ public class Order {
 
     public List<OrderBook> getItems() { return items; }
     public void setItems(List<OrderBook> items) { this.items = items; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 }

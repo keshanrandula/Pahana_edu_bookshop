@@ -1,8 +1,11 @@
 import React from 'react';
 import { FaBook, FaUserFriends, FaLightbulb } from 'react-icons/fa';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function About() {
   return (
+    
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-white">
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-12">
@@ -57,5 +60,7 @@ export default function About() {
         </div>
       </div>
     </div>
+    
+ 
   );
 }

@@ -321,6 +321,8 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaPaperPlane } from 'react-icons/fa';
 import { FiCheckCircle } from 'react-icons/fi';
+import NavBar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -370,6 +372,9 @@ const ContactUs = () => {
   };
 
   return (
+    <>
+      <NavBar />
+    
     <div className="bg-white">
       {/* Hero Section */}
       <div className="bg-orange-600 text-white py-20 px-4 sm:px-6 lg:px-8">
@@ -511,6 +516,9 @@ const ContactUs = () => {
         
       </div>
     </div>
+     <Footer />
+
+</>
   );
 };
 

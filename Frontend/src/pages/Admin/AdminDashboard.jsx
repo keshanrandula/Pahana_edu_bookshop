@@ -239,8 +239,10 @@ import {
   FaSearch,
   FaChartBar,
   FaCog,
+  FaSignOutAlt,
   FaBell,
   FaUserCircle,
+  
 } from 'react-icons/fa';
 
 export default function AdminDashboard() {
@@ -290,10 +292,10 @@ export default function AdminDashboard() {
       subtitle: 'Upload a new book with image',
     },
     {
-      to: '/BookSearch',
+      to: '/admin/feedback',
       icon: <FaSearch className="text-3xl text-yellow-500 mb-2" />,
-      title: 'Search Books',
-      subtitle: 'Find books by title or author',
+      title: 'feedback',
+      subtitle: 'user feedback',
     },
     {
       to: '/admin/bookview',
@@ -308,10 +310,10 @@ export default function AdminDashboard() {
       subtitle: 'order view',
     },
     {
-      to: '/Settings',
-      icon: <FaCog className="text-3xl text-gray-700 mb-2" />,
-      title: 'Settings',
-      subtitle: 'System preferences',
+      to: '/admin/login',
+      icon: <FaSignOutAlt className="text-3xl text-gray-700 mb-2" />,
+      title: 'Logout',
+      subtitle: 'Logout from admin',
     },
   ];
 
@@ -336,13 +338,19 @@ export default function AdminDashboard() {
     },
   ];
 
+  const handleLogout = () => {
+    // Add logout logic here
+    navigate("/admin/login");
+  };    
+
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       {/* Header */}
       <header className="flex flex-col md:flex-row justify-between items-center mb-6 bg-white shadow p-4 rounded">
         <div>
-          <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-          <p className="text-gray-600">Welcome back, Admin!</p>
+          <h1 className="text-2xl  font-bold  text-orange-500">Admin Dashboard</h1>
+          <p className="text-orange-600">Welcome back, Admin!</p>
         </div>
         <div className="flex items-center space-x-4 mt-4 md:mt-0">
           <button className="relative">
@@ -351,7 +359,7 @@ export default function AdminDashboard() {
           </button>
           <div className="flex items-center space-x-2">
             <FaUserCircle className="text-2xl text-gray-600" />
-            <span className="text-gray-800 font-semibold">Admin</span>
+            <span className="text-orange-600 font-semibold">Admin</span>
           </div>
         </div>
       </header>

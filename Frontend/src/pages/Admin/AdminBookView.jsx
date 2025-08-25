@@ -36,8 +36,8 @@ const AdminBookView = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 p-6">
-      <h1 className="text-3xl font-bold text-center text-blue-900 mb-8">Admin Book Management</h1>
+    <div className="min-h-screen bg-white-50 p-6">
+      <h1 className="text-3xl font-bold text-center text-orange-600 mb-8">Admin Book Management</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {books.map((book) => (

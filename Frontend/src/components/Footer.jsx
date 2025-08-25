@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Company Info */}
         <div>
           <h2 className="text-xl font-bold mb-2 text-orange-500">Pahana Bookshop</h2>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-orange-300">
             Your trusted bookshop for stories that inspire and knowledge that empowers.
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="text-sm text-gray-400 text-center md:text-right">
+        <div className="text-sm text-orange-400 text-center md:text-right">
           &copy; {new Date().getFullYear()} Pahana Bookshop. All rights reserved.
         </div>
       </div>

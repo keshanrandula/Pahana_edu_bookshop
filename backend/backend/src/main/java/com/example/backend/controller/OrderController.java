@@ -24,6 +24,21 @@ public class OrderController {
 
 
     }
+
+    /// //////////////
+    // PUT: Confirm or update order
+    @PutMapping("/{id}")
+    public Order updateOrder(@PathVariable String id, @RequestBody Order updatedOrder) {
+        return orderService.updateOrder(id, updatedOrder);
+    }
+
+    // DELETE: Delete order
+    @DeleteMapping("/{id}")
+    public void deleteOrder(@PathVariable String id) {
+        orderService.deleteOrder(id);
+    }
+
+
 }
 
 

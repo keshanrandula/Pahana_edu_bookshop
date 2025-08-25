@@ -370,12 +370,13 @@ const UserProfile = () => {
       );
       toast.success("Profile updated successfully!", {
         position: "top-center",
+        style: { backgroundColor: 'orange', color: 'white' },
       });
       setUser(res.data);
       localStorage.setItem("user", JSON.stringify(res.data));
       setIsEditing(false);
     } catch (error) {
-      toast.error("Error updating profile!", { position: "top-center" });
+      toast.error("Error updating profile!", { position: "top-center" },{ backgroundColor: 'orange', color: 'white' });
       console.error(error);
     }
   };

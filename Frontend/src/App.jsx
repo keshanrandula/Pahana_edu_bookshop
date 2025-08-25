@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import BookDetails from './pages/BookDetails'; // Assuming you have this component
+import BookHome from './pages/BookHome'; // Assuming you have this component
 
 
 import AdminRegister from './pages/Admin/AdminRegister';  
@@ -21,6 +22,13 @@ import BookShop from './pages/BookShop'; // Assuming you have this component
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import AdminOrderView from './pages/Admin/OrderView'; // Assuming you have this component
+import MyOrders from './pages/MyOrders';
+import Help from './pages/Help'; // Assuming you have this component
+import UserFeedback from './pages/UserFeedback'; // Assuming you have this component
+import AdminFeedback from './pages/Admin/AdminFeedback'; // Assuming you have this component
+
+
+
 
 
 
@@ -39,6 +47,15 @@ function App() {
       <Route path="/cart" element={<Cart />} /> {/* Assuming you have this component */}
       {/* Admin routes */}
       <Route path="/checkout" element={<Checkout />} /> {/* Assuming you have this component */}
+      <Route path="/myorders" element={<MyOrders />} /> {/* Assuming you have this component */}
+      <Route path="/help" element={<Help />} /> {/* Assuming you have this component */}
+      <Route path="/bookhome" element={<BookHome />} /> {/* Assuming you have this component */}
+      <Route path="/userfeedback" element={<UserFeedback />} /> {/* Assuming you have this component */}
+
+
+      
+      {/* User routes */}
+
       
       {/* Admin routes */}
       
@@ -56,6 +73,9 @@ function App() {
       <Route path="/admin/userdetails" element={<UserDetails/>} /> {/* Assuming you have this component */}
       <Route path="/book/:id" element={<BookDetails />} />
       <Route path="/admin/orders" element={<AdminOrderView />} /> {/* Assuming you have this component */}
+      <Route path="/admin/feedback" element={<AdminFeedback />} /> {/* Assuming you have this component */}
+
+    
 
 
 

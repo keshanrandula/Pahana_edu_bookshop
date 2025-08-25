@@ -27,7 +27,7 @@ const BookShop = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">📚 pahana BookShop</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center"> pahana edu BookShop</h1>
 
       {/* Search & Category */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -45,11 +45,11 @@ const BookShop = () => {
           className="border border-gray-300 rounded px-4 py-2 w-full md:w-1/3"
         >
           <option value="">Select Category</option>
-          <option value="Fiction">Fiction</option>
-          <option value="Non-Fiction">Non-Fiction</option>
-          <option value="Science">Science</option>
-          <option value="History">History</option>
-          <option value="Biography">Biography</option>
+                <option value="Bussiness and Economics">Bussiness and Economics</option>
+                <option value="Engineering and Technology">Engineering and Technology</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Science">Science</option>
+                <option value="Novels">Novels</option>
         </select>
       </div>
 

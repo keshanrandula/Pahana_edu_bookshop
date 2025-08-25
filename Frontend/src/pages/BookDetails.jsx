@@ -66,7 +66,7 @@ const BookDetails = () => {
       <div className="mt-8 text-center">
         <button
           onClick={handleAddToCart}
-          className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700"
+          className="bg-orange-600 text-white px-6 py-3 rounded hover:bg-orange-700"
         >
           Add to Cart
         </button>

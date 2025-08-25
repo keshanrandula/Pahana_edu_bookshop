@@ -18,6 +18,17 @@ public class OrderService {
     public Iterable<Order> getAllOrders() {
         return orderRepository.findAll();
     }
+    /// ///////////// new
+    public Order updateOrder(String id, Order updatedOrder) {
+        Order existing = orderRepository.findById(id).orElseThrow();
+        existing.setStatus(updatedOrder.getStatus());
+        return orderRepository.save(existing);
+    }
+
+    public void deleteOrder(String id) {
+        orderRepository.deleteById(id);
+    }
+
 
 }
 

@@ -434,31 +434,140 @@ const Checkout = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const generateInvoicePDF = () => {
+  // const generateInvoicePDF = () => {
+
+  //   const doc = new jsPDF();
+  //   let y = 20;
+
+  //   doc.setFontSize(18);
+  //   doc.text("Book Store - Invoice", 70, y);
+  //   y += 10;
+
+  //   doc.setFontSize(12);
+  //   doc.text(`Customer: ${formData.username}`, 20, y); y += 6;
+  //   doc.text(`Email: ${formData.email}`, 20, y); y += 6;
+  //   doc.text(`Address: ${formData.address}, ${formData.city}, ${formData.zip}`, 20, y); y += 10;
+
+  //   doc.text("Books:", 20, y); y += 6;
+
+  //   cartItems.forEach((item, index) => {
+  //     doc.text(`${index + 1}. ${item.title} - Qty: ${item.quantity || 1} - Rs. ${item.price.toFixed(2)}`, 25, y);
+  //     y += 6;
+  //   });
+
+  //   y += 6;
+  //   doc.text(`Total: Rs. ${calculateTotal()}`, 20, y);
+
+  //   doc.save(`invoice_${Date.now()}.pdf`);
+  // };
+const generateInvoicePDF = () => {
     const doc = new jsPDF();
     let y = 20;
 
-    doc.setFontSize(18);
-    doc.text("Book Store - Invoice", 70, y);
-    y += 10;
+    // Add bookshop logo (you would need to add an actual image)
+    // doc.addImage(logoData, 'JPEG', 10, 10, 30, 15);
+
+    // Header
+    doc.setFontSize(22);
+    doc.setTextColor(214, 89, 39); // Orange color
+    doc.setFont('helvetica', 'bold');
+    doc.text("PAHANA EDU BOOKSHOP", 105, y, null, null, 'center');
+    y += 8;
 
     doc.setFontSize(12);
-    doc.text(`Customer: ${formData.username}`, 20, y); y += 6;
-    doc.text(`Email: ${formData.email}`, 20, y); y += 6;
-    doc.text(`Address: ${formData.address}, ${formData.city}, ${formData.zip}`, 20, y); y += 10;
+    doc.setTextColor(81, 81, 81);
+    doc.setFont('helvetica', 'normal');
+    doc.text("123 Education Street, Colombo 05", 105, y, null, null, 'center');
+    y += 5;
+    doc.text("Tel: 011-1234567 | Email: info@pahanaedu.lk", 105, y, null, null, 'center');
+    y += 15;
 
-    doc.text("Books:", 20, y); y += 6;
+    // Invoice title
+    doc.setFontSize(18);
+    doc.setTextColor(214, 89, 39); // Orange color
+    doc.text("INVOICE", 105, y, null, null, 'center');
+    y += 10;
 
+    // Invoice details
+    doc.setFontSize(10);
+    doc.setTextColor(81, 81, 81);
+    doc.text(`Invoice #: INV-${Date.now().toString().slice(-6)}`, 20, y);
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, 160, y);
+    y += 15;
+
+    // Customer details box
+    doc.setDrawColor(200, 200, 200);
+    doc.setFillColor(255, 243, 224); // Light orange background
+    doc.rect(20, y, 170, 30, 'FD'); // Filled rectangle
+    doc.setFontSize(12);
+    doc.setTextColor(214, 89, 39); // Orange color
+    doc.text("BILL TO:", 25, y + 8);
+    doc.setFontSize(10);
+    doc.setTextColor(0, 0, 0);
+    doc.text(`${formData.username}`, 60, y + 8);
+    doc.text(`${formData.email}`, 60, y + 15);
+    doc.text(`${formData.address}, ${formData.city}, ${formData.zip}`, 60, y + 22);
+    y += 35;
+
+    // Table header
+    doc.setFillColor(214, 89, 39); // Orange color
+    doc.rect(20, y, 170, 10, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.text("No.", 25, y + 7);
+    doc.text("Book Title", 40, y + 7);
+    doc.text("Qty", 140, y + 7);
+    doc.text("Price", 160, y + 7);
+    doc.text("Total", 180, y + 7);
+    y += 10;
+
+    // Table rows
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(0, 0, 0);
+    let grandTotal = 0;
+    
     cartItems.forEach((item, index) => {
-      doc.text(`${index + 1}. ${item.title} - Qty: ${item.quantity || 1} - Rs. ${item.price.toFixed(2)}`, 25, y);
-      y += 6;
+        const itemTotal = (item.quantity || 1) * item.price;
+        grandTotal += itemTotal;
+        
+        doc.text(`${index + 1}.`, 25, y + 7);
+        doc.text(item.title, 40, y + 7);
+        doc.text(`${item.quantity || 1}`, 140, y + 7, null, null, 'right');
+        doc.text(`Rs. ${item.price.toFixed(2)}`, 160, y + 7, null, null, 'right');
+        doc.text(`Rs. ${itemTotal.toFixed(2)}`, 180, y + 7, null, null, 'right');
+        
+        y += 10;
+        // Add line between items
+        if (index < cartItems.length - 1) {
+            doc.setDrawColor(200, 200, 200);
+            doc.line(25, y, 185, y);
+            y += 5;
+        }
     });
 
-    y += 6;
-    doc.text(`Total: Rs. ${calculateTotal()}`, 20, y);
+    y += 10;
+    // Grand total
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.text("TOTAL:", 140, y + 7);
+    doc.text(`Rs. ${grandTotal.toFixed(2)}`, 180, y + 7, null, null, 'right');
 
-    doc.save(`invoice_${Date.now()}.pdf`);
-  };
+    y += 15;
+    // Footer
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(81, 81, 81);
+    doc.text("Thank you for your purchase!", 105, y, null, null, 'center');
+    y += 5;
+    doc.text("pahana bookshop billpayment", 105, y, null, null, 'center');
+    y += 5;
+    doc.text("- payment", 105, y, null, null, 'center');
+    y += 10;
+    doc.text("Returns accepted within 7 days with original receipt", 105, y, null, null, 'center');
+
+    // Save the PDF
+    doc.save(`PahanaEdu_Invoice_${Date.now().toString().slice(-6)}.pdf`);
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();

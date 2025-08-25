@@ -469,15 +469,28 @@ const Navbar = () => {
           <Link to="/contact" className="text-white hover:text-orange-200 transition-colors duration-300 font-medium">
             Contact Us
           </Link>
+
+          {/* new add help */}
+            <Link to="/help" className="text-white hover:text-orange-200 transition-colors duration-300 font-medium">
+             Help
+          </Link>
+
+         {/* new add help */}
+            <Link to="/userfeedback" className="text-white hover:text-orange-200 transition-colors duration-300 font-medium">
+              Feedback
+          </Link>
+
         </div>
+
+        
 
         {/* Right Side: Cart + Profile */}
         <div className="flex items-center space-x-6">
           <Link to="/cart" className="relative text-white hover:text-orange-200 text-xl transition-colors duration-300">
             <FaShoppingCart />
-            <span className="absolute -top-2 -right-2 bg-white text-orange-600 text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-              0
-            </span>
+            {/* <span className="absolute -top-2 -right-2 bg-white text-orange-600 text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+             
+            </span> */}
           </Link>
 
           {user ? (
@@ -607,6 +620,18 @@ const Navbar = () => {
                     <FaBook className="mr-3 text-orange-600" />
                     Shop
                   </Link>
+                  {/* new add help sections */}
+                  
+                  <Link
+                    to="/help"
+                    onClick={closeMobileMenu}
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  >
+                    <FaEnvelope className="mr-3 text-orange-600" />
+                    Help
+                  </Link>
+
+
 
                   <Link
                     to="/contact"
@@ -616,6 +641,18 @@ const Navbar = () => {
                     <FaEnvelope className="mr-3 text-orange-600" />
                     Contact Us
                   </Link>
+
+                  
+                  <Link
+                    to="/userfeedback"
+                    onClick={closeMobileMenu}
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  >
+                    <FaEnvelope className="mr-3 text-orange-600" />
+                     Feedback
+                  </Link>
+
+
 
                   {user ? (
                     <>
