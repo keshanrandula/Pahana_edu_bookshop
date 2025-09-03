@@ -18,7 +18,7 @@ const BookHome = () => {
   return (
     
     <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center"> Pahana edu BookShop</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-orange-600"> Pahana Edu BookShop</h1>
 
       {/* Books Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -30,7 +30,7 @@ const BookHome = () => {
             <img
               src={`http://localhost:8080/${book.imageUrl}`}
               alt={book.title}
-              className="w-full h-56 object-cover"
+              className="h-60 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
 
             <div className="p-4 flex flex-col flex-1">

@@ -1,5 +1,9 @@
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserDetails = () => {
   const [users, setUsers] = useState([]);
@@ -23,12 +27,18 @@ const UserDetails = () => {
     axios
       .delete(`http://localhost:8080/api/auth/${id}`)
       .then(() => {
-        alert("User deleted successfully");
+        toast.success("User deleted successfully!", {
+          position: "top-center",
+          style: { backgroundColor: "orange", color: "white" },
+        });
         fetchUsers(); // Refresh list
       })
       .catch((error) => {
         console.error("Error deleting user:", error);
-        alert("Failed to delete user.");
+        toast.error("Failed to delete user.", {
+          position: "top-center",
+          style: { backgroundColor: "red", color: "white" },
+        });
       });
   };
 
@@ -42,7 +52,7 @@ const UserDetails = () => {
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto border border-orange-500">
-              <thead className="bg-blue-100 text-orange-500">
+              <thead className="bg-orange-600 text-black-500">
                 <tr>
                   <th className="py-2 px-4 border">Username</th>
                   <th className="py-2 px-4 border">Email</th>
@@ -73,8 +83,10 @@ const UserDetails = () => {
           </div>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };
 
 export default UserDetails;
+

@@ -16,7 +16,7 @@ export default function About() {
       </div>
 
       {/* Key Points */}
-      <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 mb-16">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 mb-16 bg-orange-50 ">
         <div className="p-6 border border-orange-100 rounded-lg bg-orange-50">
           <FaBook className="text-2xl text-orange-600 mb-3" />
           <h2 className="text-lg font-medium mb-2 text-gray-800">Curated Selection</h2>

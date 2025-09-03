@@ -1,52 +1,4 @@
-// import React from "react";
-// import jsPDF from "jspdf";
 
-// const Help = () => {
-//   const guidelines = `
-//     User Guidelines:
-
-//     1. Login to access your account.
-//     2. Navigate through the menu to explore features.
-//     3. Use the dashboard for quick actions.
-//     4. Update your profile regularly for better service.
-//     5. Contact support if you face any issues.
-//   `;
-
-//   const downloadPDF = () => {
-//     const doc = new jsPDF();
-//     doc.setFont("Helvetica", "normal");
-//     doc.text("User Guidelines", 10, 10);
-//     doc.text(guidelines, 10, 20);
-//     doc.save("User_Guidelines.pdf");
-//   };
-
-//   return (
-//     <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
-//       <h1 className="text-2xl font-bold mb-4 text-gray-800">User Guidelines</h1>
-//       <ul className="list-disc pl-6 text-gray-700 space-y-2">
-//         <li>Login to access your account.</li>
-//         <li>Navigate through the menu to explore features.</li>
-//         <li>Use the dashboard for quick actions.</li>
-//         <li>Update your profile regularly for better service.</li>
-//         <li>Contact support if you face any issues.</li>
-//       </ul>
-
-//       <div className="mt-6">
-//         <button
-//           onClick={downloadPDF}
-//           className="px-4 py-2 bg-orange-600 text-white font-semibold rounded hover:bg-orange-700"
-//         >
-//           Download PDF
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Help;
-
-
-////////////////////////////
 
 
 import React from "react";
@@ -81,9 +33,9 @@ const Help = () => {
       { 
         section: "Account Access", 
         points: [
-          "Register using your institutional email",
-          "Login with your credentials",
-          "Reset password via email if needed"
+          "Register using your  email, password  and other details ",
+          "Login with your email and password",
+          "you can access your homepage"
         ] 
       },
       { 
@@ -97,9 +49,9 @@ const Help = () => {
       { 
         section: "Order Management", 
         points: [
-          "Track order status in real-time",
-          "View order history and receipts",
-          "Request returns within 7 days"
+          "first details check then can acess cart ",
+          "View order order details",
+          "you checkout your order"
         ] 
       },
       { 
@@ -136,7 +88,7 @@ const Help = () => {
     doc.setFontSize(10);
     doc.setTextColor(100, 100, 100);
     doc.text("Thank you for choosing Phana Edu Bookshop", 105, 280, { align: 'center' });
-    doc.text("© 2023 Phana Edu Bookshop | All Rights Reserved", 105, 285, { align: 'center' });
+    doc.text("© 2025 Phana Edu Bookshop | All Rights Reserved", 105, 285, { align: 'center' });
 
     // Save PDF
     doc.save("PhanaEdu_User_Guidelines.pdf");
@@ -155,9 +107,9 @@ const Help = () => {
         <div className="p-5 bg-orange-50 rounded-xl border-l-4 border-orange-500">
           <h2 className="text-xl font-semibold text-orange-700 mb-3">1. Account Access</h2>
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Register using your institutional email</li>
-            <li>Login with your credentials</li>
-            <li>Reset password via email if needed</li>
+            <li>Register using your  email, password  and other details</li>
+            <li>Login with your email and password</li>
+            <li>you can access your homepage</li>
           </ul>
         </div>
 
@@ -175,9 +127,9 @@ const Help = () => {
         <div className="p-5 bg-orange-50 rounded-xl border-l-4 border-orange-500">
           <h2 className="text-xl font-semibold text-purple-700 mb-3">3. Order Management</h2>
           <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Track order status in real-time</li>
-            <li>View order history and receipts</li>
-            <li>Request returns within 7 days</li>
+            <li>first details check then can acess cart </li>
+            <li>View order order details</li>
+            <li>you checkout your order</li>
           </ul>
         </div>
 

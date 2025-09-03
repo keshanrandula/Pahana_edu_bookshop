@@ -2,31 +2,30 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import BookDetails from './pages/BookDetails'; // Assuming you have this component
-import BookHome from './pages/BookHome'; // Assuming you have this component
+import BookDetails from './pages/BookDetails';
+import BookHome from './pages/BookHome'; 
 
 
 import AdminRegister from './pages/Admin/AdminRegister';  
 import AdminLogin from './pages/Admin/AdminLogin';
 import BookAdd from './pages/Admin/BookAdd'; 
 import AdminBookView from './pages/Admin/AdminBookView'; 
-import UpdateBook from './pages/Admin/UpdateBook'; // Assuming you have this component
-import AdminProfile from './pages/Admin/AdminProfile'; // Assuming you have this component
-import UserDetails from './pages/Admin/UserDetails'; // Assuming you have this component
+import UpdateBook from './pages/Admin/UpdateBook'; 
+import AdminProfile from './pages/Admin/AdminProfile';
+import UserDetails from './pages/Admin/UserDetails'; 
 import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact'; // Assuming you have this component  
+import Contact from './pages/Contact';   
 import UserProfile from './pages/UserProfile';
 import AdminDashboard from './pages/Admin/AdminDashboard';
-import BookShop from './pages/BookShop'; // Assuming you have this component
+import BookShop from './pages/BookShop'; 
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
-import AdminOrderView from './pages/Admin/OrderView'; // Assuming you have this component
+import AdminOrderView from './pages/Admin/OrderView'; 
 import MyOrders from './pages/MyOrders';
-import Help from './pages/Help'; // Assuming you have this component
-import UserFeedback from './pages/UserFeedback'; // Assuming you have this component
-import AdminFeedback from './pages/Admin/AdminFeedback'; // Assuming you have this component
-
+import Help from './pages/Help'; 
+import UserFeedback from './pages/UserFeedback'; 
+import AdminFeedback from './pages/Admin/AdminFeedback'; 
 
 
 
@@ -35,6 +34,7 @@ import AdminFeedback from './pages/Admin/AdminFeedback'; // Assuming you have th
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/home" element={<Home />} />
@@ -42,15 +42,15 @@ function App() {
       <Route path="/contact" element={<Contact />} /> 
       <Route path="/userprofile" element={<UserProfile />} /> 
         {/* <Route path="/profile/:userId" element={<UserProfile />} /> */}
-      <Route path="/admin/dashboard" element={<AdminDashboard />} /> {/* Assuming you have this component */}
-      <Route path="/bookshop" element={<BookShop />} /> {/* Assuming you have this component */}
-      <Route path="/cart" element={<Cart />} /> {/* Assuming you have this component */}
+      <Route path="/admin/dashboard" element={<AdminDashboard />} /> 
+      <Route path="/bookshop" element={<BookShop />} /> 
+      <Route path="/cart" element={<Cart />} /> 
       {/* Admin routes */}
-      <Route path="/checkout" element={<Checkout />} /> {/* Assuming you have this component */}
-      <Route path="/myorders" element={<MyOrders />} /> {/* Assuming you have this component */}
-      <Route path="/help" element={<Help />} /> {/* Assuming you have this component */}
-      <Route path="/bookhome" element={<BookHome />} /> {/* Assuming you have this component */}
-      <Route path="/userfeedback" element={<UserFeedback />} /> {/* Assuming you have this component */}
+      <Route path="/checkout" element={<Checkout />} /> 
+      <Route path="/myorders" element={<MyOrders />} /> 
+      <Route path="/help" element={<Help />} />
+      <Route path="/bookhome" element={<BookHome />} /> 
+      <Route path="/userfeedback" element={<UserFeedback />} /> 
 
 
       
@@ -69,17 +69,17 @@ function App() {
       <Route path="/admin/bookadd" element={<BookAdd />} />
       <Route path="/admin/bookview" element={<AdminBookView />} />
       <Route path="/admin/update/:id" element={<UpdateBook />} /> 
-      <Route path="/admin/profile" element={<AdminProfile />} /> {/* Assuming you have this component */}
-      <Route path="/admin/userdetails" element={<UserDetails/>} /> {/* Assuming you have this component */}
+      <Route path="/admin/profile" element={<AdminProfile />} /> 
+      <Route path="/admin/userdetails" element={<UserDetails/>} /> 
       <Route path="/book/:id" element={<BookDetails />} />
-      <Route path="/admin/orders" element={<AdminOrderView />} /> {/* Assuming you have this component */}
-      <Route path="/admin/feedback" element={<AdminFeedback />} /> {/* Assuming you have this component */}
+      <Route path="/admin/orders" element={<AdminOrderView />} /> 
+      <Route path="/admin/feedback" element={<AdminFeedback />} /> 
 
     
 
 
 
-      {/* Add more routes as needed */}
+    
       
       
       

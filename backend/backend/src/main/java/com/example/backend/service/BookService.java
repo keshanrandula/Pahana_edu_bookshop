@@ -11,17 +11,16 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    // Add a new boo
     public Book addBook(Book book) {
         return bookRepository.save(book);
     }
 
-    // Get all books
+
     public Iterable<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
-    // Update a book
+    
     public Book updateBook(String id, Book bookDetails) {
         return bookRepository.findById(id).map(book -> {
             book.setTitle(bookDetails.getTitle());

@@ -25,7 +25,7 @@ export default function Header() {
       <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-            Welcome to Our Bookstore
+            Welcome to Our Bookshop
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
             Discover your next favorite book in our extensive collection

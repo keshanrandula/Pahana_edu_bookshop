@@ -14,11 +14,11 @@ public class OrderService {
     public Order saveOrder(Order order) {
         return orderRepository.save(order);
     }
-    // New method to get all orders
+
     public Iterable<Order> getAllOrders() {
         return orderRepository.findAll();
     }
-    /// ///////////// new
+
     public Order updateOrder(String id, Order updatedOrder) {
         Order existing = orderRepository.findById(id).orElseThrow();
         existing.setStatus(updatedOrder.getStatus());

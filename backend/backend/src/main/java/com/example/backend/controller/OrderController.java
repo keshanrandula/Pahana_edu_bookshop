@@ -17,7 +17,7 @@ public class OrderController {
     public Order placeOrder(@RequestBody Order order) {
         return orderService.saveOrder(order);
     }
-    // New GET endpoint to get all orders
+
     @GetMapping
     public Iterable<Order> getAllOrders() {
         return orderService.getAllOrders();
@@ -25,8 +25,7 @@ public class OrderController {
 
     }
 
-    /// //////////////
-    // PUT: Confirm or update order
+
     @PutMapping("/{id}")
     public Order updateOrder(@PathVariable String id, @RequestBody Order updatedOrder) {
         return orderService.updateOrder(id, updatedOrder);

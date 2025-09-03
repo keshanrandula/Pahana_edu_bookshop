@@ -454,7 +454,7 @@ const Navbar = () => {
       <nav className="bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg py-3 px-6 flex justify-between items-center sticky top-0 z-50">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-white hover:text-orange-200 transition-colors duration-300">
-          <span className="font-extrabold">Pahana</span> 
+          <span className="font-extrabold">Pahana Edu</span> 
           <span className="font-light"> Bookshop</span>
         </Link>
 
@@ -478,6 +478,10 @@ const Navbar = () => {
          {/* new add help */}
             <Link to="/userfeedback" className="text-white hover:text-orange-200 transition-colors duration-300 font-medium">
               Feedback
+          </Link>
+
+          <Link to="/myorders" className="text-white hover:text-orange-200 transition-colors duration-300 font-medium">
+              MyOrders
           </Link>
 
         </div>
@@ -650,6 +654,17 @@ const Navbar = () => {
                   >
                     <FaEnvelope className="mr-3 text-orange-600" />
                      Feedback
+                  </Link>
+
+
+                   
+                  <Link
+                    to="/myorders"
+                    onClick={closeMobileMenu}
+                    className="flex items-center px-4 py-3 text-gray-700 hover:bg-orange-50 rounded-lg transition-colors duration-200"
+                  >
+                    <FaEnvelope className="mr-3 text-orange-600" />
+                     MyOrders
                   </Link>
 
 

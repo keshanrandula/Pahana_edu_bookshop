@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
+import NavBar from "../components/Navbar"; 
+import Footer from "../components/Footer"; 
+
 
 const BookShop = () => {
   const [books, setBooks] = useState([]);
@@ -26,8 +29,11 @@ const BookShop = () => {
   const goToCart = () => navigate('/cart');
 
   return (
+
+    <>
+    <NavBar />
     <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center"> pahana edu BookShop</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-orange-600"> Pahana Edu BookShop</h1>
 
       {/* Search & Category */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -36,13 +42,13 @@ const BookShop = () => {
           placeholder="Search by title..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="border border-gray-300 rounded px-4 py-2 w-full"
+          className="border border-orange-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-300 rounded px-4 py-2 w-full outline-none"
         />
 
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="border border-gray-300 rounded px-4 py-2 w-full md:w-1/3"
+          className="border border-orange-600 rounded px-4 py-2 w-full md:w-1/3"
         >
           <option value="">Select Category</option>
                 <option value="Bussiness and Economics">Bussiness and Economics</option>
@@ -93,7 +99,7 @@ const BookShop = () => {
       <img
         src={`http://localhost:8080/${book.imageUrl}`}
         alt={book.title}
-        className="w-full h-56 object-cover"
+        className="h-60 w-auto object-contain transition-transform duration-300 hover:scale-105"
       />
 
       <div className="p-4 flex flex-col flex-1">
@@ -127,6 +133,8 @@ const BookShop = () => {
         <p className="text-center text-gray-500 mt-8">No books found.</p>
       )}
     </div>
+    <Footer />
+    </>
   );
 };
 

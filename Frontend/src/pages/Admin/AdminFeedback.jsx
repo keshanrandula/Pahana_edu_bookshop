@@ -1,4 +1,8 @@
+
+
 import { useState, useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AdminFeedback() {
   const [feedbackList, setFeedbackList] = useState([]);
@@ -36,13 +40,17 @@ export default function AdminFeedback() {
 
       if (res.ok) {
         setFeedbackList(feedbackList.filter((item) => item.id !== id));
-        alert("Feedback deleted successfully!");
+        toast.success(" Feedback deleted successfully!", {
+         position: "top-center",
+         style: { backgroundColor: 'orange', color: 'white' },
+          autoClose: 2000,
+        });
       } else {
-        alert("Failed to delete feedback.");
+        toast.error(" Failed to delete feedback.");
       }
     } catch (err) {
       console.error("Error:", err);
-      alert("Error deleting feedback.");
+      toast.error(" Error deleting feedback.");
     }
   };
 
@@ -57,7 +65,7 @@ export default function AdminFeedback() {
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-200 shadow-sm rounded-xl">
-            <thead className="bg-orange-100 text-gray-700 uppercase">
+            <thead className="bg-orange-600 text-gray-700 uppercase">
               <tr>
                 <th className="px-6 py-3 border">Name</th>
                 <th className="px-6 py-3 border">Email</th>
@@ -85,6 +93,8 @@ export default function AdminFeedback() {
           </table>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 }
+

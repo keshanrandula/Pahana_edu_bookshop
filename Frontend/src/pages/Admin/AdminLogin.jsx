@@ -1,3 +1,6 @@
+
+
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
@@ -20,21 +23,27 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
+      // Step 1: Login API
       const res = await axios.post('http://localhost:8080/api/admin/login', credentials);
-      setMessage(res.data);
 
       if (res.data === "Admin login successful!") {
-        // Save the email to localStorage
-        localStorage.setItem("adminEmail", credentials.email);
+        // Step 2: Fetch full profile using email
+        const userRes = await axios.get(
+          `http://localhost:8080/api/admin/profile?email=${credentials.email}`
+        );
 
-        // Navigate to profile page
-        navigate('/admin/dashboard');
+        if (userRes.data) {
+          // Step 3: Save full admin object to localStorage
+          localStorage.setItem("admin", JSON.stringify(userRes.data));
+
+          // Step 4: Redirect
+          navigate('/admin/dashboard');
+        }
       } else {
         alert(res.data);
       }
 
       setCredentials({ email: '', password: '' });
-
     } catch (err) {
       console.error('Login error:', err);
       setMessage('Login failed. Please try again.');
@@ -76,7 +85,7 @@ const AdminLogin = () => {
         </form>
 
         {message && (
-          <p className="mt-4 text-center text-green-600">{message}</p>
+          <p className="mt-4 text-center text-red-600">{message}</p>
         )}
 
         <p className="mt-4 text-center text-sm text-gray-600">
@@ -91,3 +100,4 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
+

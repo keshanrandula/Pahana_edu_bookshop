@@ -25,7 +25,7 @@ public class Order {
 
     private List<OrderBook> items;
 
-    private String status = "Pending"; // ✅ New field
+    private String status = "Pending";
 
     // Getters & Setters
     public String getId() { return id; }

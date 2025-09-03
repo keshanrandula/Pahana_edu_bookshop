@@ -16,7 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-@CrossOrigin(origins = "http://localhost:5173") // Allow requests from the frontend
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
@@ -36,11 +36,11 @@ public class BookController {
                                         @RequestParam("language") String language,
                                         @RequestParam("price") double price,
                                         @RequestParam("pages") int pages,
-                                        @RequestParam("category") String category,  // Added category field
+                                        @RequestParam("category") String category,
                                         @RequestParam("image") MultipartFile image) {
         try {
             String imageUrl = saveImage(image);  // Save the image and get the URL
-            Book book = new Book(title, author, publisher, language, price, imageUrl, pages, category);  // Include category
+            Book book = new Book(title, author, publisher, language, price, imageUrl, pages, category);
             Book savedBook = bookService.addBook(book);
             return new ResponseEntity<>(savedBook, HttpStatus.CREATED);
         } catch (Exception e) {

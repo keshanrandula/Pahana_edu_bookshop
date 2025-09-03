@@ -34,6 +34,15 @@ public class AdminService {
         return AdminService.getAllAdmins();
     }
 
+    // new add
+    public Admin getAdminByEmail(String email) {
+        return adminRepository.findByEmail(email).orElse(null);
+    }
+    //new one
+    public void saveAdmin(Admin admin) {
+        adminRepository.save(admin);
+    }
+
 
 
 }
