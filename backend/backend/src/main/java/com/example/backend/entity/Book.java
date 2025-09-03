@@ -17,10 +17,10 @@ public class  Book {
     private int pages;
     private String category;  // New field for book category
 
-    // Default constructor
+
     public Book() {}
 
-    // Full constructor
+
     public Book(String title, String author, String publisher, String language, double price, String imageUrl, int pages, String category) {
         this.title = title;
         this.author = author;

@@ -45,7 +45,7 @@ function App() {
       <Route path="/admin/dashboard" element={<AdminDashboard />} /> 
       <Route path="/bookshop" element={<BookShop />} /> 
       <Route path="/cart" element={<Cart />} /> 
-      {/* Admin routes */}
+      
       <Route path="/checkout" element={<Checkout />} /> 
       <Route path="/myorders" element={<MyOrders />} /> 
       <Route path="/help" element={<Help />} />

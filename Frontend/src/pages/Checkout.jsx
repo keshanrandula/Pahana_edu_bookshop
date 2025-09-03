@@ -89,7 +89,7 @@ const generateInvoicePDF = () => {
 
     // Header
     doc.setFontSize(22);
-    doc.setTextColor(214, 89, 39); // Orange color
+    doc.setTextColor(214, 89, 39); 
     doc.setFont('helvetica', 'bold');
     doc.text("PAHANA EDU BOOKSHOP", 105, y, null, null, 'center');
     y += 8;
@@ -104,11 +104,11 @@ const generateInvoicePDF = () => {
 
     // Invoice title
     doc.setFontSize(18);
-    doc.setTextColor(214, 89, 39); // Orange color
+    doc.setTextColor(214, 89, 39); 
     doc.text("INVOICE", 105, y, null, null, 'center');
     y += 10;
 
-    // Invoice details
+    
     doc.setFontSize(10);
     doc.setTextColor(81, 81, 81);
     doc.text(`Invoice #: INV-${Date.now().toString().slice(-6)}`, 20, y);
@@ -117,10 +117,10 @@ const generateInvoicePDF = () => {
 
     // Customer details box
     doc.setDrawColor(200, 200, 200);
-    doc.setFillColor(255, 243, 224); // Light orange background
-    doc.rect(20, y, 170, 30, 'FD'); // Filled rectangle
+    doc.setFillColor(255, 243, 224); 
+    doc.rect(20, y, 170, 30, 'FD'); 
     doc.setFontSize(12);
-    doc.setTextColor(214, 89, 39); // Orange color
+    doc.setTextColor(214, 89, 39);
     doc.text("BILL TO:", 25, y + 8);
     doc.setFontSize(10);
     doc.setTextColor(0, 0, 0);
@@ -130,7 +130,7 @@ const generateInvoicePDF = () => {
     y += 35;
 
     // Table header
-    doc.setFillColor(214, 89, 39); // Orange color
+    doc.setFillColor(214, 89, 39); 
     doc.rect(20, y, 170, 10, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFont('helvetica', 'bold');
@@ -157,7 +157,7 @@ const generateInvoicePDF = () => {
         doc.text(`Rs. ${itemTotal.toFixed(2)}`, 180, y + 7, null, null, 'right');
         
         y += 10;
-        // Add line between items
+        
         if (index < cartItems.length - 1) {
             doc.setDrawColor(200, 200, 200);
             doc.line(25, y, 185, y);

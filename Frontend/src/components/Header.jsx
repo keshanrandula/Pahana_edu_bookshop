@@ -13,7 +13,7 @@ export default function Header() {
           src="/i1.jpg"
           alt="Bookstore Banner"
           className="w-full h-full object-cover"
-          loading="eager" // For above-the-fold images
+          loading="eager" 
         />
       </div>
 

@@ -21,7 +21,7 @@ public class AuthController {
     @Autowired
     private UserRepository userRepository;
 
-    // POST: Register
+
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody User user) {
         String response = authService.registerUser(user);
@@ -30,7 +30,7 @@ public class AuthController {
                 ResponseEntity.badRequest().body(response);
     }
 
-    // POST: Login
+
     @PostMapping("/login")
     public ResponseEntity<String> loginUser(@RequestBody User loginRequest) {
         String response = authService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
@@ -39,7 +39,7 @@ public class AuthController {
                 ResponseEntity.badRequest().body(response);
     }
 
-    //  GET: Get all users
+
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(userRepository.findAll());
@@ -54,7 +54,7 @@ public class AuthController {
 
 
 
-    //  PUT: Update user by ID
+
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody User updatedUser) {
         return userRepository.findById(id).map(user -> {
@@ -67,7 +67,7 @@ public class AuthController {
         }).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // DELETE: Delete user by ID
+    //  Delete user by ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable String id) {
         if (userRepository.existsById(id)) {

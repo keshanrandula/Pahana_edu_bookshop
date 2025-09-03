@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const UpdateBook = () => {
-  const { id } = useParams(); // get book id from URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [bookData, setBookData] = useState({
     title: '',
@@ -46,7 +46,7 @@ const UpdateBook = () => {
       reader.onloadend = () => {
         setBookData(prev => ({
           ...prev,
-          imageUrl: reader.result // base64 string
+          imageUrl: reader.result 
         }));
       };
       reader.readAsDataURL(file);
@@ -61,7 +61,7 @@ const UpdateBook = () => {
           position: "top-center",
           style: { backgroundColor: 'orange', color: 'white' },
         });
-        setTimeout(() => navigate("/admin/bookview"), 2000); // delay for toast
+        setTimeout(() => navigate("/admin/bookview"), 2000); 
       })
       .catch(err => {
         console.error("Update failed", err);

@@ -16,14 +16,14 @@ const UserProfile = () => {
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (!storedUser) {
-      navigate("/register"); // Redirect if not logged in
+      navigate("/register"); 
     } else {
       setUser(storedUser);
       setUpdatedUser(storedUser);
     }
   }, [navigate]);
 
-  // Handle input changes
+ 
   const handleChange = (e) => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
   };

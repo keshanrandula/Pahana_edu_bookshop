@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Password validation: min 5 chars, 1 uppercase, 1 number
+    
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{5,}$/;
     if (!passwordRegex.test(formData.password)) {
       setMessage("Password must be at least 5 characters, include one uppercase letter, and one number.");
@@ -37,7 +37,7 @@ const Register = () => {
         const registeredUser = userRes.data.find(user => user.email === formData.email);
         if (registeredUser) {
           localStorage.setItem('user', JSON.stringify(registeredUser));
-          navigate('/userprofile');
+          navigate('/home');
         }
       } else {
         setMessage(res.data); 

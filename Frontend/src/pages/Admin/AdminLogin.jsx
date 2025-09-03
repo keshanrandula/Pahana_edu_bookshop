@@ -23,20 +23,20 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      // Step 1: Login API
+      // Login API
       const res = await axios.post('http://localhost:8080/api/admin/login', credentials);
 
       if (res.data === "Admin login successful!") {
-        // Step 2: Fetch full profile using email
+        //  Fetch full profile using email
         const userRes = await axios.get(
           `http://localhost:8080/api/admin/profile?email=${credentials.email}`
         );
 
         if (userRes.data) {
-          // Step 3: Save full admin object to localStorage
+          //  Save full admin object to localStorage
           localStorage.setItem("admin", JSON.stringify(userRes.data));
 
-          // Step 4: Redirect
+          //  Redirect
           navigate('/admin/dashboard');
         }
       } else {

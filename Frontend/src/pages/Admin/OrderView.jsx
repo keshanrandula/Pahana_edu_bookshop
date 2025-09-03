@@ -51,7 +51,7 @@ const ViewOrders = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 bg-white min-h-screen">
-      <h2 className="text-3xl font-bold mb-6 text-orange-600 border-b-2 border-orange-200 pb-2">📦 All Orders</h2>
+      <h2 className="text-3xl font-bold mb-6 text-orange-600 border-b-2 border-orange-200 pb-2"> All Orders</h2>
 
       {orders.length === 0 ? (
         <p className="text-gray-500">No orders found.</p>

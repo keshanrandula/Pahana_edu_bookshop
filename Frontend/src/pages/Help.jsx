@@ -11,19 +11,19 @@ const Help = () => {
   const downloadPDF = () => {
     const doc = new jsPDF();
     
- // Header with orange background
-    doc.setFillColor(255, 102, 0);  // Vibrant orange (#FF6600)
+ 
+    doc.setFillColor(255, 102, 0);  
     doc.rect(0, 0, 210, 30, 'F');
     doc.setFontSize(24);
-    doc.setTextColor(255, 255, 255);  // White text
+    doc.setTextColor(255, 255, 255); 
     doc.text("PHANA EDU BOOKSHOP", 105, 20, { align: 'center' });
     
-    // Subtitle in dark orange
+    
     doc.setFontSize(16);
-    doc.setTextColor(204, 51, 0);  // Dark orange (#CC3300)
+    doc.setTextColor(204, 51, 0);  
     doc.text("User Guidelines Handbook", 105, 45, { align: 'center' });
     
-    // Decorative orange line
+    
     doc.setDrawColor(255, 102, 0);
     doc.setLineWidth(0.8);
     doc.line(20, 50, 190, 50);
@@ -81,7 +81,7 @@ const Help = () => {
         yPos += 7;
       });
       
-      yPos += 10;  // Space between sections
+      yPos += 10;  
     });
 
     // Footer

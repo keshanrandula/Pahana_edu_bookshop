@@ -21,14 +21,13 @@ const AddBook = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Prevent negative price/pages
     if ((name === "price" || name === "pages") && value < 0) {
       setMessage(`${name.charAt(0).toUpperCase() + name.slice(1)} cannot be negative.`);
       return;
     }
 
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setMessage(""); // clear warning when fixed
+    setMessage(""); 
   };
 
   const handleFileChange = (e) => {
@@ -38,7 +37,7 @@ const AddBook = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Extra validation before submit
+  
     if (parseFloat(formData.price) < 0 || parseFloat(formData.pages) < 0) {
       setMessage("Price and Pages must be positive numbers.");
       return;
@@ -109,7 +108,7 @@ const AddBook = () => {
             </div>
           ))}
 
-          {/* Price with Sri Lankan Rupee */}
+         
           <div>
             <label className="block text-sm font-medium mb-1">Price</label>
             <div className="relative">

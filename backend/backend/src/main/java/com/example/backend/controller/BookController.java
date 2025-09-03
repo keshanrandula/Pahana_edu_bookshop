@@ -48,7 +48,7 @@ public class BookController {
         }
     }
 
-    // GET: Get all books
+    //  Get all books
     @GetMapping
     public ResponseEntity<Iterable<Book>> getAllBooks() {
         try {
@@ -59,7 +59,7 @@ public class BookController {
         }
     }
 
-    // PUT: Update a book
+    // Update a book
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable String id, @RequestBody Book bookDetails) {
         try {

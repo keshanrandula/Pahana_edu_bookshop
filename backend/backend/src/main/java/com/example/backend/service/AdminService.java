@@ -28,17 +28,17 @@ public class AdminService {
                 .map(a -> a.getPassword().equals(password) ? "Admin login successful!" : "Incorrect password!")
                 .orElse("Admin not found!");
     }
-//new add remove
+
     @GetMapping("/admins")
     public static List<Admin> getAllAdmins() {
         return AdminService.getAllAdmins();
     }
 
-    // new add
+
     public Admin getAdminByEmail(String email) {
         return adminRepository.findByEmail(email).orElse(null);
     }
-    //new one
+
     public void saveAdmin(Admin admin) {
         adminRepository.save(admin);
     }

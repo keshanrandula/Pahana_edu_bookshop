@@ -32,13 +32,13 @@ public class AdminController {
     }
 
 
-    //new one
+
     @GetMapping("/profile")
     public Admin getAdminProfile(@RequestParam String email) {
         return adminService.getAdminByEmail(email);
     }
 
-    //new one
+
 
     @PutMapping("/update")
     public String updateAdmin(@RequestBody Admin admin) {
